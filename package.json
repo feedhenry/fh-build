@@ -1,6 +1,6 @@
 {
   "name": "fh-build",
-  "version": "1.0.14",
+  "version": "1.1.0",
   "description": "A module for building RHMAP components",
   "main": "./index.js",
   "bin": {

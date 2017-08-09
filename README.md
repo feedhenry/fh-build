@@ -3,7 +3,7 @@ This module makes testing of RHMAP components easier by running a build jobs wit
 `fh-build`'s main purpose is to be installed as a tool in CI testing, e.g. in [Travis CI](http://travis-ci.org).
 
 It contains a shell script installing couple of dependencies:
-- npm@2.13.5
+- npm@2.13.5 for node v4 or npm@3.10.8 for node v6
 - [grunt-cli](https://www.npmjs.com/package/grunt-cli)
 - [fh-npm](https://www.npmjs.com/package/fh-npm)
 - [s2i](https://github.com/openshift/source-to-image)

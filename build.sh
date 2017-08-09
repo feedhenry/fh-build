@@ -3,21 +3,28 @@
 function template () {
   # Find out Node version => choose appropriate docker build-image
   nodeversion=`node -v`
-  if [[ $nodeversion == "v4"* ]]
+  npmversion=""
+  if [[ $nodeversion == "v6"* ]]
+  then
+    buildimage="registry.access.redhat.com/rhscl/nodejs-6-rhel7"
+    npmversion="3.10.8"
+  elif [[ $nodeversion == "v4"* ]]
   then
     buildimage="registry.access.redhat.com/rhscl/nodejs-4-rhel7"
+    npmversion="2.13.5"
   else
     buildimage="registry.access.redhat.com/openshift3/nodejs-010-rhel7"
+    npmversion="2.13.5"
   fi
   
   # npm installation
-  npm install -g npm@2.13.5
+  eval "npm install -g npm@$npmversion"
   
   # grunt installation
   npm install -g grunt-cli
   
   # fh-npm dependency installation
-  npm install -g fh-npm@0.0.9-41
+  npm install -g fh-npm@0.0.12-66
   
   # fh-npm build test
   fhnpm="`which node` `which npm`"
