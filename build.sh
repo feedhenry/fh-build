@@ -3,7 +3,11 @@
 function template () {
   # Find out Node version => choose appropriate docker build-image
   nodeversion=`node -v`
-  if [[ $nodeversion == "v4"* ]]
+
+  if [[ $nodeversion == "v6"* ]]
+  then
+    buildimage="registry.access.redhat.com/rhscl/nodejs-6-rhel7"
+  elif [[ $nodeversion == "v4"* ]]
   then
     buildimage="registry.access.redhat.com/rhscl/nodejs-4-rhel7"
   else
