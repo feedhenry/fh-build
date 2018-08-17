@@ -4,9 +4,13 @@ function template () {
   # Find out Node version => choose appropriate docker build-image
   nodeversion=`node -v`
   npmversion=""
-  if [[ $nodeversion == "v8"* ]]
+  if [[ $nodeversion == "v10"* ]]
   then
-    buildimage="registry.access.redhat.com/rhscl/nodejs-8-rhel7"
+    buildimage="registry.access.redhat.com/rhoar-nodejs/nodejs-10"
+    npmversion="6.3.0"
+  elif [[ $nodeversion == "v8"* ]]
+  then
+    buildimage="registry.access.redhat.com/rhoar-nodejs/nodejs-8"
     npmversion="5.6.0"
   elif [[ $nodeversion == "v6"* ]]
   then
